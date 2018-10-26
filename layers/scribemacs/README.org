@@ -1,0 +1,36 @@
+#+TITLE: ScribEmacs layer
+
+# The maximum height of the logo should be 200 pixels.
+[[img/scribemacs.png]]
+
+# TOC links should be GitHub style anchors.
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+
+* Description
+
+Configuration to make Spacemacs a solid environment for /this/ writer (can't guarantee that it will be of much use to anyone else).
+
+The buck stops here: all major configuration and keybindings, etc, get their final touch-up in this layer.
+
+** Features:
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =scribemacs= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+* Key bindings
+
+| Key Binding | Description    |
+|-------------+----------------|
+| ~SPC x x x~ | Does thing01   |
+
+# Use GitHub URLs if you wish to link a Spacemacs documentation file or its heading.
+# Examples:
+# [[https://github.com/syl20bnr/spacemacs/blob/master/doc/VIMUSERS.org#sessions]]
+# [[https://github.com/syl20bnr/spacemacs/blob/master/layers/%2Bfun/emoji/README.org][Link to Emoji layer README.org]]
+# If space-doc-mode is enabled, Spacemacs will open a local copy of the linked file.

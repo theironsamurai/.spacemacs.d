@@ -1,0 +1,3 @@
+* ScribEmacs
+
+ScribEmacs: Spacemacs for a Writer who Geeks. (new config, work in progress)
