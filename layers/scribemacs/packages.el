@@ -61,7 +61,8 @@ Each entry is either:
 (defun scribemacs/post-init-move-text ()
   (use-package move-text
     :config
-    (move-text-default-bindings)))
+    (move-text-default-bindings))
+  )
 
 
 ;;; packages.el ends here

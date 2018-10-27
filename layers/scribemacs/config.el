@@ -3,15 +3,13 @@
 
 ;;; Code:
 
+;; Basic
+(blink-cursor-mode)
+
 ;; Navigation: Ranger
 (setq ranger-cleanup-on-disable t)
 (setq ranger-show-dotfiles t)
-(setq ranger-parent-depth 1)
-(setq ranger-width-parents 0.25)
-(setq ranger-max-parent-width 0.40)
-(setq ranger-width-preview 0.35)
 (setq ranger-ignored-extensions '("mkv" "iso" "mp4"))
-(setq ranger-max-preview-size 10)
 
 ;; Deft
 (setq deft-directory "~/Dropbox/orgwiki")
@@ -31,20 +29,29 @@
 
 ;; Asciidoc Mode 
 (add-to-list 'auto-mode-alist (cons "\\.asciidoc\\'" 'adoc-mode))
-(add-hook 'adoc-mode-hook 'turn-on-orgtbl)
+;(add-hook 'adoc-mode-hook 'turn-on-orgtbl)
 
 ;; Markdown
 
-(add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+;(add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+(add-hook 'markdown-mode-hook 'markdown-toggle-wiki-links)
 
 ;; Org-Mode
 
 (with-eval-after-load 'org
   ;; here goes your Org config
   (add-hook 'org-mode-hook 'org-toggle-link-display)
+  (add-hook 'org-mode-hook 'my/org-olivetti)
   )
 
+;; Olivetti
 
+(with-eval-after-load 'olivetti
+  (setq olivetti-body-width 90)
+  (add-hook 'text-mode-hook 'turn-on-olivetti-mode)
+  )
+
+;;;;;;;;;;;;;;;;;; EVIL ;;;;;;;;;;;;;;;;;;
 
 
 ;;; config.el ends here

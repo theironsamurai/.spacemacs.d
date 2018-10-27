@@ -24,6 +24,10 @@
 ;;   (indent-according-to-mode))
 
 
-
+(defun my/org-olivetti ()
+  "My custom configuration for 'org-mode'."
+  (olivetti-mode)
+  (olivetti-set-width 90)
+  )
 
 ;;; funcs.el ends here
