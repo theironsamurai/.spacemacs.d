@@ -62,6 +62,23 @@
   (define-key evil-normal-state-map [tab] 'org-cycle)
   )
 
+;; Markdown
+;; (define-key evil-hybrid-state-map (kbd "C-M-<return>") 'markdown-follow-thing-at-point)
+;; (define-key evil-emacs-state-map [<C-M-return>] 'markdown-follow-thing-at-point)
+;; (define-key evil-insert-state-map [<C-M-return>] 'markdown-follow-thing-at-point)
+;; (define-key evil-visual-state-map [<C-M-return>] 'markdown-follow-thing-at-point)
+(with-eval-after-load 'markdown-mode
+  (define-key markdown-mode-map (kbd "S-<return>") 'markdown-follow-wiki-link-at-point)
+  (spacemacs/declare-prefix "om" "markdown")
+  (spacemacs/set-leader-keys "omd" 'markdown-toggle-url-hiding)
+  (spacemacs/set-leader-keys "omf" 'markdown-follow-wiki-link-at-point)
+  (spacemacs/set-leader-keys "omg" 'markdown-insert-gfm-code-block)
+  (spacemacs/set-leader-keys "omw" 'markdown-insert-wiki-link)
+  (spacemacs/set-leader-keys "oml" 'markdown-insert-link)
+  )
+
+
+
 ;;;;;;;;;;; Evil ;;;;;;;;;;;;;;;
 
 ;; Go Back!!

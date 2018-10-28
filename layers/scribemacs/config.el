@@ -12,15 +12,21 @@
 (setq ranger-ignored-extensions '("mkv" "iso" "mp4"))
 
 ;; Deft
-(setq deft-directory "~/Dropbox/orgwiki")
-(setq deft-extensions '("org" "txt" "tex" "asciidoc" "adoc" "markdown" "md"))
+(setq deft-directory "~/Dropbox/awiki")
+(setq deft-extensions '("md" "txt" "tex" "asciidoc" "adoc" "markdown" "org"))
 (global-set-key [f8] 'deft)
 (setq deft-use-filename-as-title t)
 (setq deft-org-mode-title-prefix t)
 (setq deft-file-naming-rules
       '((noslash . "-")
-        (nospace . "-")
-        (case-fn . downcase)))
+        (nospace . "-")))
+
+;; Autocomplete filenames
+;; NOTE: ac-sources is for the sources of
+;; auto-complete
+
+;; (add-to-list 'ac-sources 'ac-source-filename)
+;; (add-to-list 'ac-sources 'ac-source-files-in-current-dir)
 
 ;; Text Modes
 
@@ -29,12 +35,7 @@
 
 ;; Asciidoc Mode 
 (add-to-list 'auto-mode-alist (cons "\\.asciidoc\\'" 'adoc-mode))
-;(add-hook 'adoc-mode-hook 'turn-on-orgtbl)
 
-;; Markdown
-
-;(add-hook 'markdown-mode-hook 'turn-on-orgtbl)
-(add-hook 'markdown-mode-hook 'markdown-toggle-wiki-links)
 
 ;; Org-Mode
 
@@ -42,13 +43,16 @@
   ;; here goes your Org config
   (add-hook 'org-mode-hook 'org-toggle-link-display)
   (add-hook 'org-mode-hook 'my/org-olivetti)
+  (setq org-wikinodes-scope 'directory)
   )
 
-;; Olivetti
 
-(with-eval-after-load 'olivetti
-  (setq olivetti-body-width 90)
-  (add-hook 'text-mode-hook 'turn-on-olivetti-mode)
+;; Markdown
+
+(with-eval-after-load 'markdown-mode
+  (setq markdown-enable-wiki-links t)
+  (add-hook 'markdown-mode-hook 'turn-on-olivetti-mode)
+  (add-hook 'markdown-mode-hook 'markdown-toggle-url-hiding)
   )
 
 ;;;;;;;;;;;;;;;;;; EVIL ;;;;;;;;;;;;;;;;;;

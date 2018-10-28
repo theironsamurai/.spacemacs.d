@@ -211,7 +211,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(birds-of-paradise-plus
+                         spacemacs-dark
                          gruvbox
                          spacemacs-light
                          doom-one
@@ -234,7 +235,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Hack"
-                               :size 14
+                               :size 16
                                :weight normal
                                :width normal)
 
@@ -469,6 +470,7 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
   )
 
 (defun dotspacemacs/user-load ()
